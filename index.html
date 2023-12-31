@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>Star Rating</title>
+        <style>
+           *{
+            margin:0px;
+            padding: 0px;
+           } 
+           h1{
+            color:rgb(212, 38, 16);
+            text-align: solid;
+           }
+           body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(45deg, hwb(318 2% 3%), #a6cbe4);
+        }
+        .rating_heading{
+          color: gold;
+          animation: slide-up 2s ease;
+        }
+        @keyframes slide-up {
+          0%{
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          100%{
+            opacity: 1;
+            transform: translateY(10px);
+          }
+        }
+        .star_rating{
+            user-select: none;
+            background-color: rgb(245, 195, 103);
+            margin: 2rem;
+            padding: 1.4rem 2.5rem;
+            border-radius: .4rem;
+            text-align: center;
+            animation: slide-up 2s ease;
+            box-shadow: 0px 20px 15px black;
+        }
+        @keyframes slide-up {
+          0%{
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          100%{
+            opacity: 1;
+            transform: translateY(10px);
+          }
+        }
+        .star{
+            font-size: 4rem;
+            color: #ad936c;
+            background-color: unset;
+            border: none;
+        }
+        .star:hover{
+            cursor: pointer;
+        }
+     
+           .btn{
+            height:30px;
+            width:100px;
+            font-size: large;
+            font-family: calibri;
+           }
+           .btn button{
+            height: 100%;
+            width: 100%;  
+            font-weight: 800;     
+            background: rgb(224, 104, 104);
+            cursor: pointer;
+            color:black;
+           }
+        </style>
+    </head>
+    <body>
+        <h1>How would be your experience? </h1>
+        <br>
+        <h3>Give me a Star rating experience</h3>
+        <div class="star_rating" onclick="Demo()">
+            <!--star symbol keyword is &#9734-->
+            <input type="radio" class="rating" value="5" 
+            id="5">
+            <label class="5">&#9734</label>
+            <input type="radio" class="rating" value="5" 
+            id="4">
+            <label class="4">&#9734</label>
+            <input type="radio" class="rating" value="5" 
+            id="3">
+            <label class="3">&#9734</label>
+            <input type="radio" class="rating" value="5" 
+            id="2">
+            <label class="2">&#9734</label>
+            <input type="radio" class="rating" value="5" 
+            id="1">
+            <label class="1">&#9734</label>
+        </div>
+        <br>
+        <header>Describe your experience?</header>
+        <textarea cols="40" rows="10"></textarea>
+        <br><br>
+        <div class="btn">
+        <button type="submit">Submit</button>
+    </div>
+        <script>
+            const allStars = document.querySelectorAll('.star')
+            allStars.forEach((star,i)=>{
+            star.onclick= function(){
+               let current_star= i+1
+                                        
+               allStars.forEach((star,j)=>{
+                if(current_star >= j+1){
+                  star.innerHTML='&#9733'
+                }else{
+                  star.innerHTML='&#9734'
+                }
+
+               })
+            }
+        })
+       
+        </script>
+        
+
+    </body>
+</html>
